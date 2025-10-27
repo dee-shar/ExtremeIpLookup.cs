@@ -19,7 +19,7 @@ namespace ExtremeIpLookupApi
 
         public void SetApiKey(string apiKey)
         {
-            apiKey = apiKey;
+            this.apiKey = apiKey;
         }
 
         public async Task<string> GetIpInfo(string ip)
@@ -27,6 +27,7 @@ namespace ExtremeIpLookupApi
             var response = await httpClient.GetAsync($"{apiUrl}/json/{ip}?key={apiKey}");
             return await response.Content.ReadAsStringAsync();
         }
+        
         public async Task<string> GetMyIp()
         {
             var response = await httpClient.GetAsync($"{apiUrl}/json/?key={apiKey}");
